@@ -5,4 +5,16 @@ module calcula_hamming (
 
 // implemente o seu código aqui
 
+ wire p1, p2, p4, p8;
+
+  // Cálculo dos bits de paridade (paridade par)
+  assign p1 = entrada[0] ^ entrada[1] ^ entrada[3] ^ entrada[4] ^ entrada[6] ^ entrada[8] ^ entrada[10];
+  assign p2 = entrada[0] ^ entrada[2] ^ entrada[3] ^ entrada[5] ^ entrada[6] ^ entrada[9] ^ entrada[10];
+  assign p4 = entrada[1] ^ entrada[2] ^ entrada[3] ^ entrada[7] ^ entrada[8] ^ entrada[9] ^ entrada[10];
+  assign p8 = entrada[4] ^ entrada[5] ^ entrada[6] ^ entrada[7] ^ entrada[8] ^ entrada[9] ^ entrada[10];
+
+  // Montagem da palavra de saída com os bits de paridade nas posições adequadas
+  assign saida = {entrada[10], entrada[9], entrada[8], entrada[7], p8, entrada[6], entrada[5], entrada[4], p4, entrada[3], entrada[2], entrada[1], p2, entrada[0], p1};
+
+
 endmodule
