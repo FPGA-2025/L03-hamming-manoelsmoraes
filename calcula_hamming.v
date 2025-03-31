@@ -3,7 +3,7 @@ module calcula_hamming (
   output [14:0] saida
 );
 
-// implemente o seu código aqui
+// implemente o seu código 
 
  wire p1, p2, p4, p8;
 
@@ -15,6 +15,5 @@ module calcula_hamming (
 
   // Montagem da palavra de saída com os bits de paridade nas posições adequadas
   assign saida = {entrada[10], entrada[9], entrada[8], entrada[7], p8, entrada[6], entrada[5], entrada[4], p4, entrada[3], entrada[2], entrada[1], p2, entrada[0], p1};
-
 
 endmodule
