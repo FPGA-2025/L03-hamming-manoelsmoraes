@@ -6,7 +6,7 @@ module corrige_hamming (
 
 // implemente o seu código aqui
 
-wire p1, p2, p4, p8;
+  wire p1, p2, p4, p8;
   wire [3:0] erro_pos;
   reg [14:0] corrigido;
 
@@ -21,14 +21,16 @@ wire p1, p2, p4, p8;
 
   always @(*) begin
     corrigido = entrada;
-    
+
     // Se erro_pos não for 0, inverter o bit correspondente
     if (erro_pos != 4'b0000) begin
       corrigido[erro_pos - 1] = ~corrigido[erro_pos - 1];
     end
-    
+
     // Extrai os bits de dados corrigidos
     saida = {corrigido[14], corrigido[13], corrigido[12], corrigido[11], corrigido[10], corrigido[9], corrigido[7], corrigido[6], corrigido[5], corrigido[3], corrigido[2]};
   end
 
 endmodule
+
+
