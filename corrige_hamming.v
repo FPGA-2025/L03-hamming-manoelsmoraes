@@ -7,11 +7,12 @@ module corrige_hamming (
   wire [3:0] erro_pos;
   reg [14:0] corrigido;
 
-  // Recalcula os bits de paridade com base nos dados recebidos
-  assign p1 = entrada[0] ^ entrada[2] ^ entrada[4] ^ entrada[6] ^ entrada[8] ^ entrada[10] ^ entrada[12] ^ entrada[14];
-  assign p2 = entrada[1] ^ entrada[2] ^ entrada[5] ^ entrada[6] ^ entrada[9] ^ entrada[10] ^ entrada[13] ^ entrada[14];
-  assign p4 = entrada[3] ^ entrada[4] ^ entrada[5] ^ entrada[6] ^ entrada[11] ^ entrada[12] ^ entrada[13] ^ entrada[14];
-  assign p8 = entrada[7] ^ entrada[8] ^ entrada[9] ^ entrada[10] ^ entrada[11] ^ entrada[12] ^ entrada[13] ^ entrada[14];
+ // recalcula os bits de paridade com base nos dados recebidos
+
+   assign p1 = entrada[0] ^ entrada[2] ^ entrada[4] ^ entrada[6] ^ entrada[8] ^ entrada[10] ^ entrada[12] ^ entrada[14];
+   assign p2 = entrada[1] ^ entrada[2] ^ entrada[5] ^ entrada[6] ^ entrada[9] ^ entrada[10] ^ entrada[13] ^ entrada[14];
+   assign p4 = entrada[3] ^ entrada[4] ^ entrada[5] ^ entrada[6] ^ entrada[11] ^ entrada[12] ^ entrada[13] ^ entrada[14];
+   assign p8 = entrada[7] ^ entrada[8] ^ entrada[9] ^ entrada[10] ^ entrada[11] ^ entrada[12] ^ entrada[13] ^ entrada[14];
 
   // Determina a posição do erro com base nos bits de paridade
   assign erro_pos = {p8, p4, p2, p1};  // A posição do erro é formada pela combinação dos bits de paridade
@@ -26,6 +27,7 @@ module corrige_hamming (
 
     // Extrai os bits de dados corrigidos (somente os bits de dados, não os de paridade)
     saida = {corrigido[14], corrigido[13], corrigido[12], corrigido[11], corrigido[10], corrigido[9], corrigido[7], corrigido[6], corrigido[5], corrigido[3], corrigido[2]};
-  end
+
+  end  
 
 endmodule
