@@ -26,7 +26,7 @@ module corrige_hamming (
     end
 
     // Extrai os bits de dados corrigidos (somente os bits de dados, não os de paridade)
-    saida = {corrigido[14], corrigido[13], corrigido[12], corrigido[11], corrigido[10], corrigido[9], corrigido[7], corrigido[6], corrigido[5], corrigido[3], corrigido[2]};
+    saida = {corrigido[14], corrigido[13], corrigido[12], corrigido[11], corrigido[10], corrigido[9], corrigido[8], corrigido[6], corrigido[5], corrigido[4], corrigido[2]};
 
   end  
 

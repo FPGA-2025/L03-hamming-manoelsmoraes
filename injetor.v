@@ -10,9 +10,10 @@ module injetor(
 
   always @(*) begin
     saida = entrada;  // Inicializa a saída com o valor da entrada
-    if (erro) begin
+    // if (erro) begin
+     if (erro && (n < 15)) begin 
       // Se o erro for ativado, inverte o bit na posição especificada
-      saida[n] = ~saida[n];
+      saida[n] = ~entrada[n];
     end
   end
 
